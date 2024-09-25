@@ -1,35 +1,38 @@
-import { Component, inject, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common'
+import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BlogPostComponent } from '../blog-post/blog-post.component';
-import { Subscription } from 'rxjs';
-import { PostsService } from '../../services/posts.service';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription, take } from 'rxjs';
 import { Blogpost } from '../../models/blogpost';
+import * as fromPostsActions from '../../store/posts.actions';
+import * as fromPostsSelectors from '../../store/posts.selectors';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, BlogPostComponent],
+  imports: [CommonModule, BlogPostComponent, RouterLink],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnDestroy {
-  blogposts: Blogpost[] = [];
-  private subscription: Subscription;
+export class HomeComponent implements OnInit {
+  blogposts$: Observable<Blogpost[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string | null>;
 
-  postsService: PostsService = inject(PostsService);
-
-  constructor() {
-    this.subscription = this.postsService.getAllPosts().subscribe(
-      (posts: any) => {
-        this.blogposts = posts;
-      }
-    );
+  constructor(private store: Store) {
+    this.blogposts$ = this.store.select(fromPostsSelectors.selectAllPosts);
+    this.loading$ = this.store.select(fromPostsSelectors.selectLoading);
+    this.error$ = this.store.select(fromPostsSelectors.selectError);
   }
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+  ngOnInit() {
+    this.store.dispatch(fromPostsActions.loadPosts());
+  }
+
+  selectPost(id: number) {
+    this.store.dispatch(fromPostsActions.selectPost({ id }))
   }
 
 }

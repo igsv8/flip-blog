@@ -1,5 +1,19 @@
-<h2>Blog Posts</h2>
+<div class="title-container">
+    <h2>Blog Posts</h2>
+    <a routerLink="/posts/create">Create Post</a>
+</div>
 
-@for (blogpost of blogposts; track blogpost) {
-<app-blog-post [blogpost]="blogpost"></app-blog-post>
+@if (loading$ | async) {
+<div class="loading">Loading...</div>
+} @else {
+<div class="blog-posts">
+    @for (blogpost of (blogposts$ | async); track blogpost.id) {
+    <app-blog-post [routerLink]="['/posts', blogpost.id]" [blogpost]="blogpost" (click)="selectPost(blogpost.id)"
+        style="cursor: pointer;"></app-blog-post>
+    }
+</div>
+}
+
+@if (error$ | async) {
+<div class="error">{{ error$ | async }}</div>
 }
