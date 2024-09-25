@@ -1,0 +1,11 @@
+@if (loading$ | async) {
+<div class="loading">Loading...</div>
+} @else {
+@if (blogpost$ | async; as blogpost) {
+<app-blog-post [blogpost]="blogpost" style="cursor: pointer;"></app-blog-post>
+}
+}
+
+@if (error$ | async) {
+<div class="error">{{ error$ | async }}</div>
+}
