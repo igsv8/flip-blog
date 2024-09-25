@@ -1,0 +1,9 @@
+<form [formGroup]="newPostForm" (submit)="createPost()" class="create-post-form">
+    <h1>Create Post</h1>
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" />
+    <label for="body">Body</label>
+    <textarea id="body" formControlName="body" rows="10"></textarea>
+
+    <button type="submit" class="primary">Create New Post</button>
+</form>

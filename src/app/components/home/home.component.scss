@@ -1,0 +1,32 @@
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #0f172a;
+        border: 1px solid #0f172a;
+        border-radius: 8px;
+        padding: 8px 16px;
+        background-color: #f8fafc;
+    }
+}
+
+
+
+.blog-posts {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    padding: 20px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
