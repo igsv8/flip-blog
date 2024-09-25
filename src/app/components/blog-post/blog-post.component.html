@@ -1,13 +1,19 @@
 <div class="blog-post">
     <h3>{{blogpost.title}}</h3>
     <p>{{blogpost.body}}</p>
-    <div class="tags">
-        @for (tag of blogpost.tags; track tag) {
-        <span class="tag">{{tag}}</span>
-        }
+
+    <div class="blog-post-footer">
+        <div class="tags">
+            @for (tag of blogpost.tags; track tag) {
+            <span class="tag">{{tag}}</span>
+            }
+        </div>
+
+        <div class="reactions">
+            <span><ng-icon name="heroHandThumbUp"></ng-icon> {{blogpost.reactions.likes}}</span>
+            <span><ng-icon name="heroHandThumbDown"></ng-icon>
+                {{blogpost.reactions.dislikes}}</span>
+            <span><ng-icon name="heroEye"></ng-icon> {{blogpost.views}}</span>
+        </div>
     </div>
-    <p>Likes: {{blogpost.reactions.likes}}</p>
-    <p>Dislikes: {{blogpost.reactions.dislikes}}</p>
-    <p>Views: {{blogpost.views}}</p>
-    <p>User ID: {{blogpost.userId}}</p>
 </div>
