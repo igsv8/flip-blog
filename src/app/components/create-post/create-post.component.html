@@ -1,0 +1,11 @@
+<h1>Create Post</h1>
+<form [formGroup]="newPostForm" (submit)="createPost()">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" />
+    <label for="body">Body</label>
+    <input id="body" type="text" formControlName="body" />
+    <!-- TODO: Add tags control -->
+    <!-- <label for="tags">Tags</label>
+    <input id="tags" type="text" formControlName="tags" /> -->
+    <button type="submit" class="primary">Create New Post</button>
+</form>

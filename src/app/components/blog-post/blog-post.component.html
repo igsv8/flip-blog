@@ -1,0 +1,13 @@
+<div class="blog-post">
+    <h3>{{blogpost.title}}</h3>
+    <p>{{blogpost.body}}</p>
+    <div class="tags">
+        @for (tag of blogpost.tags; track tag) {
+        <span class="tag">{{tag}}</span>
+        }
+    </div>
+    <p>Likes: {{blogpost.reactions.likes}}</p>
+    <p>Dislikes: {{blogpost.reactions.dislikes}}</p>
+    <p>Views: {{blogpost.views}}</p>
+    <p>User ID: {{blogpost.userId}}</p>
+</div>

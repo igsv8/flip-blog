@@ -1,0 +1,43 @@
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+}
+
+.blog-post h3 {
+    margin: 8px 0;
+    font-size: 1.5em;
+}
+
+.blog-post p {
+    margin: 0;
+}
+
+.blog-post span {
+    margin: 0;
+
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 4px 16px;
+    margin: 4px;
+    background-color: #000;
+    color: #fff;
+    width: fit-content;
+}
+
+.blog-post button {
+    margin: 0;
+}
