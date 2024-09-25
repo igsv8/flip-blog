@@ -10,10 +10,10 @@ import { map } from 'rxjs/operators';
 export class PostsService {
   private postsUrl = 'https://dummyjson.com/posts';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAllPosts(): Observable<Blogpost[]> {
-    return this.http.get<{ posts: Blogpost[] }>(`${this.postsUrl}?sortBy=id&order=desc`)
+    return this.http.get<{ posts: Blogpost[] }>(`${this.postsUrl}?sortBy=id&order=desc&limit=0&skip=0`)
       .pipe(
         map(response => response.posts ?? [])
       );
