@@ -5,6 +5,6 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'create', component: CreatePostComponent },
-    { path: 'post/:id', component: PostDetailComponent },
+    { path: 'posts/create', component: CreatePostComponent },
+    { path: 'posts/:id', component: PostDetailComponent },
 ];
