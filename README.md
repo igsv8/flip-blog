@@ -1,27 +1,12 @@
 # FlipBlog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+This project is a simple blog application built with Angular and RxJS. It allows users to view a list of blog posts, view a detailed view of a post, and create new blog posts.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- View a list of blog posts
+- View a detailed view of a post
+- Create new blog posts
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+TODO: 
+- Add pagination to the posts list - at this point all posts are loaded at once and this can become a performance issue if the number of posts grows. (API has 251 posts atm)
