@@ -3,6 +3,14 @@
 } @else {
 @if (blogpost$ | async; as blogpost) {
 <app-blog-post [blogpost]="blogpost" style="cursor: pointer;"></app-blog-post>
+<ul>
+    @for (comment of (comments$ | async); track comment.id) {
+    <li><app-comment [comment]="comment">
+
+        </app-comment>
+    </li>
+    }
+</ul>
 }
 }
 
